@@ -66,7 +66,7 @@ function Login() {
       <div className='login-hero'>
         <h2 className='header-secondary'>Aukcionas prieinamas tik prisijungusiems vartotojams</h2>
         <div className='form__container'>
-          <form className='form-user' onSubmit={handleRegister}>
+          <form className='form' onSubmit={handleRegister}>
             <h3 className='header-tertiary'>Naujas vartotojas</h3>
 
             <label htmlFor='regName' className='login__label'>
@@ -84,7 +84,7 @@ function Login() {
             <input type='text' id='regPass2' ref={regPass2} className='login__input' />
             <input type='submit' className='btn btn--shadow' value='Registruokis' />
           </form>
-          <form className='form-user' onSubmit={handleLogin}>
+          <form className='form' onSubmit={handleLogin}>
             <div>
               <h3 className='header-tertiary'>Esamas vartotojas</h3>
               <label htmlFor='logName' className='login__label'>

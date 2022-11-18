@@ -17,8 +17,13 @@ function Home() {
   async function fetchUser(secret) {
     const resp = await fetch(`http://localhost:4000/api/users/${secret}`);
     const data = await resp.json();
-    console.log('resp from server ===', data);
-    setUser(data.username);
+    if (!data.error) {
+      console.log('resp from server ===', data);
+      setUser(data.username);
+    } else {
+      console.log('resp from server ===', data);
+      nav('/login');
+    }
   }
 
   useEffect(() => {
@@ -33,13 +38,15 @@ function Home() {
       <header className='header'>
         <div className='container header__content'>
           <div className='header__side header__side--left'>
-            <Link to='/items'>
+            <Link to='/'>
               <div className='btn btn--white'>
                 <AiFillHome className='icon icon--home' />
                 <div className='header__title'>Vilniaus Aukcionas</div>
               </div>
             </Link>
-            <div className='btn btn--shadow plus'> Dėti prekę</div>
+            <Link to='/add'>
+              <div className='btn btn--shadow plus'> Dėti prekę</div>
+            </Link>
           </div>
           <div className='header__side header__side--right'>
             <div className='header__profile'>

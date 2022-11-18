@@ -90,7 +90,7 @@ html {
   justify-content: space-around;
 }
 
-.form-user {
+.form {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -199,4 +199,53 @@ html {
 .icon--logout {
   top: 0.3rem;
   font-size: 2rem;
+}
+
+/* @@@ POP UP @@@  */
+
+.popup {
+  padding: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup__box {
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: var(--color-primary);
+  position: relative;
+}
+
+.popup__close {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.popup__close:hover {
+  color: grey;
+}
+
+/* @@@ ITEMS @@@  */
+
+.items__container {
+  padding-top: 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.items__card {
+  padding: 1.5rem;
+  background-color: var(--color-primary);
+}
+
+.items__photo {
+  max-width: 15rem;
+  max-height: 20rem;
+  object-fit: cover;
 }
