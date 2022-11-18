@@ -82,7 +82,7 @@ function Login() {
               Pakartokit slaptažodį
             </label>
             <input type='text' id='regPass2' ref={regPass2} className='login__input' />
-            <input type='submit' value='Registruokis' />
+            <input type='submit' className='btn btn--shadow' value='Registruokis' />
           </form>
           <form className='form-user' onSubmit={handleLogin}>
             <div>
@@ -96,7 +96,7 @@ function Login() {
               </label>
               <input type='text' id='logPass' ref={logPass} className='login__input' />
             </div>
-            <input type='submit' value='Prisijunk' />
+            <input type='submit' value='Prisijunk' className='btn btn--shadow' />
           </form>
         </div>
         {serverResp.message && (

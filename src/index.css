@@ -1,6 +1,21 @@
+:root {
+  --color-primary: rgb(255, 239, 213);
+  --color-secondary: rgb(212, 203, 166);
+  --white: #ffffff;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  background-color: #fafafa;
 }
 
 html {
@@ -28,6 +43,14 @@ html {
   font-size: 1.6rem;
   margin-bottom: 0.8rem;
 }
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  display: block;
+}
+
+/* @@@ LOGIN PAGE @@@ */
 
 .login-page {
   position: relative;
@@ -94,4 +117,86 @@ html {
 
 .server-msg .heading-quaternary {
   margin-bottom: 0;
+}
+
+/* @@@ HOME PAGE @@@  */
+
+.header {
+  padding: 1rem;
+  background: linear-gradient(50deg, white 50%, var(--color-primary) 50.1%);
+}
+
+.header__content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__side {
+  font-size: 2rem;
+}
+
+.header__title {
+  display: inline-block;
+}
+
+.btn {
+  padding: 0.5rem 1.6rem;
+  border-radius: 25px;
+  display: inline-block;
+  border: 3px solid black;
+  cursor: pointer;
+}
+
+.btn--white {
+  border-color: #fff;
+}
+
+.btn--white:hover {
+  background-color: var(--color-primary);
+}
+
+.btn--shadow {
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.6), 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.btn--shadow:hover {
+  background-color: var(--color-primary);
+  box-shadow: none;
+}
+
+.btn--grey:hover {
+  background-color: grey;
+  color: var(--color-primary);
+}
+
+.plus:before {
+  content: '\2795';
+  display: inline-block;
+  padding-right: 10px;
+  color: rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0 var(--color-primary);
+  font-size: 1.8rem;
+}
+.header__profile {
+  margin-right: 2rem;
+  display: inline-block;
+}
+.icon {
+  position: relative;
+}
+
+.icon--home {
+  top: 0.3rem;
+  font-size: 2.2rem;
+  margin-right: 0.5rem;
+}
+
+.icon--profile {
+  top: 0.4rem;
+  font-size: 2.2rem;
+}
+
+.icon--logout {
+  top: 0.3rem;
+  font-size: 2rem;
 }
