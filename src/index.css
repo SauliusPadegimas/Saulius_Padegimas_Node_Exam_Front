@@ -8,12 +8,36 @@ html {
   font-size: 62.5%;
 }
 
-.login-hero {
-  padding: 15rem 0;
+.header-primary {
+  font-size: 6rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 3rem;
+}
+
+.header-secondary {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.header-tertiary {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.heading-quaternary {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.login-page {
   position: relative;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .bg-video {
@@ -29,4 +53,45 @@ html {
   height: 100%;
   width: 100%;
   object-fit: cover;
+}
+
+.login-hero {
+  background-color: rgba(250, 250, 250, 0.8);
+  padding: 2rem 4rem;
+  border-radius: 5px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form__container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-user {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+.login__label {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.login__input {
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.server-msg {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.server-msg .heading-quaternary {
+  margin-bottom: 0;
 }
