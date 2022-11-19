@@ -62,6 +62,7 @@ function Home() {
       <div className='container'>
         <Outlet />
       </div>
+      <footer className='footer'>Saulius Padegimas &copy; 2022</footer>
     </div>
   );
 }

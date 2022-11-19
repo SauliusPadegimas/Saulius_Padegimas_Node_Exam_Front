@@ -9,6 +9,11 @@
   box-sizing: border-box;
 }
 
+.fitVH {
+  height: calc(100vh - 13.1rem);
+  overflow-y: auto;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -23,18 +28,18 @@ html {
   font-size: 62.5%;
 }
 
-.header-primary {
+.heading-primary {
   font-size: 6rem;
   letter-spacing: 0.5rem;
   margin-bottom: 3rem;
 }
 
-.header-secondary {
+.heading-secondary {
   font-size: 3rem;
   margin-bottom: 1.5rem;
 }
 
-.header-tertiary {
+.heading-tertiary {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -149,6 +154,7 @@ html {
 
 .btn--white {
   border-color: #fff;
+  background-color: #fff;
 }
 
 .btn--white:hover {
@@ -156,12 +162,16 @@ html {
 }
 
 .btn--shadow {
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.6), 1px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 .btn--shadow:hover {
   background-color: var(--color-primary);
   box-shadow: none;
+}
+
+.btn--grey {
+  background-color: var(--color-primary);
 }
 
 .btn--grey:hover {
@@ -236,6 +246,7 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  align-items: flex-start;
   gap: 2rem;
 }
 
@@ -245,7 +256,100 @@ html {
 }
 
 .items__photo {
-  max-width: 15rem;
-  max-height: 20rem;
+  width: 20rem;
+  height: 20rem;
+  object-fit: contain;
+}
+
+.items__info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items__text {
+  font-size: 1.6rem;
+}
+
+/* ### BIDDING ### */
+
+.bidding {
+  padding-top: 6rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.bidding__img {
+  background-color: var(--color-primary);
+  padding: 2rem;
+  flex: 2;
+}
+
+.bidding__img img {
+  max-width: 100%;
   object-fit: cover;
+}
+
+.bidding__info {
+  padding: 0 2rem;
+  flex: 3;
+  align-self: center;
+}
+
+.bidding__heading {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin-bottom: 2.5rem;
+}
+
+.bidding__form {
+  margin-bottom: 2rem;
+}
+
+.bidding__input {
+  border-radius: 4px;
+  height: 3.2rem;
+  margin-right: 2rem;
+  font-size: 2rem;
+}
+
+.bidding__label {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.bidding__history {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.bid {
+  background-color: var(--color-primary);
+  padding: 0.5rem 1.5rem;
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bid__text {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* %%% FOOTER %%% */
+
+.footer {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-top: 3rem;
+  background-color: var(--color-primary);
+  padding: 1rem;
+  background: linear-gradient(
+    50deg,
+    white 25%,
+    var(--color-primary) 25.1%,
+    var(--color-primary) 75%,
+    white 75.1%
+  );
 }

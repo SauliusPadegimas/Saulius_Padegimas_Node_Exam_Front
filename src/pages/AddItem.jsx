@@ -1,10 +1,13 @@
-import { useContext, useRef } from 'react';
-import MainContext from './MainContext';
-import { Link } from 'react-router-dom';
+import { useContext, useRef, useState } from 'react';
+import MainContext from '../components/MainContext';
+import { Link, useNavigate } from 'react-router-dom';
+import { AiFillCloseCircle } from 'react-icons/ai';
 
-function Popup() {
+function AddItem() {
+  const [errorResp, setErrorResp] = useState(null);
   const { user, socket } = useContext(MainContext);
 
+  const nav = useNavigate();
   const titleRef = useRef();
   const photoRef = useRef();
   const priceRef = useRef();
@@ -23,15 +26,28 @@ function Popup() {
         },
       ],
     };
-    socket.emit('addItem', item);
+    const secret = localStorage.getItem('secret');
+    socket.emit('addItem', item, secret);
+    socket.on('errorOnAddItem', (message) => {
+      if (message) {
+        setErrorResp(message);
+      } else nav('/');
+    });
   }
   return (
-    <div className='popup'>
+    <div className='popup fitVH'>
       <div className='popup__box'>
         <Link to='/'>
           <div className='popup__close'>&times;</div>
         </Link>
-        <h2 className='header-secondary'>Pridėkite prekę į aukcioną</h2>
+        <h2 className='heading-secondary'>Pridėkite prekę į aukcioną</h2>
+        {/* jeigu turim klaida is serverio, tai rodom pranešimą */}
+        {errorResp && (
+          <h4 className='heading-quaternary'>
+            <AiFillCloseCircle style={{ color: 'red', marginRight: '1rem' }} />
+            {errorResp}
+          </h4>
+        )}
         <form className='form' onSubmit={sendItem}>
           <label htmlFor='itemName' className='login__label'>
             Pavadinimas
@@ -50,14 +66,7 @@ function Popup() {
           <label htmlFor='itemPrice' className='login__label'>
             Pradinė kaina, €
           </label>
-          <input
-            type='number'
-            ref={priceRef}
-            id='itemPrice'
-            step='0.01'
-            placeholder='0.00'
-            className='login__input'
-          />
+          <input type='number' ref={priceRef} id='itemPrice' required className='login__input' />
           <label htmlFor='itemDate' className='login__label'>
             Aukciono pabaiga
           </label>
@@ -69,4 +78,4 @@ function Popup() {
   );
 }
 
-export default Popup;
+export default AddItem;

@@ -62,12 +62,12 @@ function Login() {
           Your browser is not supported to play this video!
         </video>
       </div>
-      <h1 className='header-primary'>Vilniaus Aukcionas</h1>
+      <h1 className='heading-primary'>Vilniaus Aukcionas</h1>
       <div className='login-hero'>
-        <h2 className='header-secondary'>Aukcionas prieinamas tik prisijungusiems vartotojams</h2>
+        <h2 className='heading-secondary'>Aukcionas prieinamas tik prisijungusiems vartotojams</h2>
         <div className='form__container'>
           <form className='form' onSubmit={handleRegister}>
-            <h3 className='header-tertiary'>Naujas vartotojas</h3>
+            <h3 className='heading-tertiary'>Naujas vartotojas</h3>
 
             <label htmlFor='regName' className='login__label'>
               Vartotojo vardas
@@ -86,7 +86,7 @@ function Login() {
           </form>
           <form className='form' onSubmit={handleLogin}>
             <div>
-              <h3 className='header-tertiary'>Esamas vartotojas</h3>
+              <h3 className='heading-tertiary'>Esamas vartotojas</h3>
               <label htmlFor='logName' className='login__label'>
                 Vartotojo vardas
               </label>
@@ -101,6 +101,7 @@ function Login() {
         </div>
         {serverResp.message && (
           <div className='server-msg'>
+            {/* jeigu turim klaida is serverio, tai rodom pranešimą */}
             {serverResp.error ? (
               <AiFillCloseCircle style={{ color: 'red', marginRight: '1rem' }} />
             ) : (
