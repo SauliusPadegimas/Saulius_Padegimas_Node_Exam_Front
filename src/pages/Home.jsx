@@ -45,14 +45,14 @@ function Home() {
               </div>
             </Link>
             <Link to='/add'>
-              <div className='btn btn--shadow plus'> Dėti prekę</div>
+              <div className='btn btn--shadow btn--white plus'> Dėti prekę</div>
             </Link>
           </div>
           <div className='header__side header__side--right'>
             <div className='header__profile'>
               <BsFillPersonFill className='icon icon--profile' /> {user}
             </div>
-            <div className='btn btn--grey' onClick={logoutUser}>
+            <div className='btn btn--shadow btn--grey' onClick={logoutUser}>
               <AiOutlineLogout className='icon icon--logout' /> Logout
             </div>
             <></>

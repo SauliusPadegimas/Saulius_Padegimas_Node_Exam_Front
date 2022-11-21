@@ -25,15 +25,15 @@ function Item(props) {
       <img src={props.photo} alt='nuotrauka' className='items__photo' />
       <h4 className='heading-quaternary'>{props.title}</h4>
       <h3 className='heading-tertiary'>
-        {over ? `Pasibaigė. Laimėtojas ${props.bids[0].user}` : <Timer endDate={props.date} />}
+        {over ? `Laimėtojas ${props.bids[0].user}` : <Timer endDate={props.date} />}
       </h3>
       <div className='items__info'>
         <div>
           <p className='items__text'>Kaina: {props.bids[0].price} €</p>
           <p className='items__text'>Bids: {props.bids.length}</p>
         </div>
-        <button className='btn btn--grey' onClick={openItem}>
-          Bid
+        <button className='btn btn--shadow btn--grey' onClick={openItem}>
+          {over ? 'Istorija' : 'Bid'}
         </button>
       </div>
     </div>

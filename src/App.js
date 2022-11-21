@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import AddItem from './pages/AddItem';
@@ -14,6 +14,9 @@ function App() {
   const [user, setUser] = useState(null);
   const [items, setItems] = useState([]);
   const [timeNow, setTimeNow] = useState(new Date().getTime());
+  const [room, setRoom] = useState('');
+
+  const prevRoomRef = useRef();
 
   const states = {
     socket,
@@ -22,7 +25,15 @@ function App() {
     items,
     setItems,
     timeNow,
+    room,
+    setRoom,
   };
+  // jeigu vartotojas atsidaro kitą prekę, tai išeina iš vieno socket room ir įeina į kitą
+  useEffect(() => {
+    prevRoomRef.current = room;
+    socket.emit('leave', prevRoomRef);
+    socket.emit('join', room);
+  }, [room]);
 
   // laika perskaiciuoja kas sekunde, todel kas sekunde atsinaujina likes laikas prie visu prekiu
   useEffect(() => {

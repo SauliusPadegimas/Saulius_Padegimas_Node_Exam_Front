@@ -4,6 +4,7 @@ import Bid from '../components/Bid';
 import MainContext from '../components/MainContext';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import Timer from '../components/Timer';
+import Loading from '../components/Loading';
 
 function Bidding() {
   const [item, setItem] = useState(null);
@@ -11,7 +12,7 @@ function Bidding() {
   const [errorResp, setErrorResp] = useState(null);
   const [over, setOver] = useState(false);
   let { id } = useParams();
-  const { socket, timeNow } = useContext(MainContext);
+  const { socket, timeNow, setRoom } = useContext(MainContext);
 
   function handleChange(e) {
     setPrice(e.target.value);
@@ -23,12 +24,14 @@ function Bidding() {
   }
 
   useEffect(() => {
+    setRoom(id);
     socket.emit('items', id);
     socket.on('oneItem', (data) => {
       console.log('got one item ===', data);
       setItem(data);
       setPrice(data.bids[0].price + 1);
     });
+
     socket.on('errorOnUpdate', (message) => {
       if (message) {
         setErrorResp(message);
@@ -44,10 +47,10 @@ function Bidding() {
         setOver(true);
       }
     }
-  }, [timeNow]);
+  }, [item, timeNow]);
 
   if (!item) {
-    return <h2>Loading</h2>;
+    return <Loading />;
   } else {
     return (
       <div className='bidding fitVH'>

@@ -146,14 +146,13 @@ html {
 
 .btn {
   padding: 0.5rem 1.6rem;
+  border: none;
   border-radius: 25px;
   display: inline-block;
-  border: 3px solid black;
   cursor: pointer;
 }
 
 .btn--white {
-  border-color: #fff;
   background-color: #fff;
 }
 
@@ -162,11 +161,10 @@ html {
 }
 
 .btn--shadow {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .btn--shadow:hover {
-  background-color: var(--color-primary);
   box-shadow: none;
 }
 
@@ -247,7 +245,7 @@ html {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .items__card {
@@ -292,7 +290,7 @@ html {
 .bidding__info {
   padding: 0 2rem;
   flex: 3;
-  align-self: center;
+  align-self: flex-start;
 }
 
 .bidding__heading {
