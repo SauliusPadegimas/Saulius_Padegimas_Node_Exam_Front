@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Bid from '../components/Bid';
 import MainContext from '../components/MainContext';
@@ -12,7 +12,7 @@ function Bidding() {
   const [errorResp, setErrorResp] = useState(null);
   const [over, setOver] = useState(false);
   let { id } = useParams();
-  const { socket, timeNow, setRoom } = useContext(MainContext);
+  const { socket, timeNow, room, setRoom } = useContext(MainContext);
 
   function handleChange(e) {
     setPrice(e.target.value);
@@ -24,7 +24,9 @@ function Bidding() {
   }
 
   useEffect(() => {
-    setRoom(id);
+    socket.emit('leave', room); // atsijungia nuo seno room
+    socket.emit('join', id); // prisijungia prie naujo room
+    setRoom(id); // nauja room nustatyto i app state
     socket.emit('items', id);
     socket.on('oneItem', (data) => {
       console.log('got one item ===', data);

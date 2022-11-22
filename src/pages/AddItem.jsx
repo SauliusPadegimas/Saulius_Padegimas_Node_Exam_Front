@@ -40,7 +40,7 @@ function AddItem() {
         <Link to='/'>
           <div className='popup__close'>&times;</div>
         </Link>
-        <h2 className='heading-secondary'>Pridėkite prekę į aukcioną</h2>
+        <h2 className='heading-secondary'>Pridėkite prekę</h2>
         {/* jeigu turim klaida is serverio, tai rodom pranešimą */}
         {errorResp && (
           <h4 className='heading-quaternary'>
@@ -63,15 +63,31 @@ function AddItem() {
             placeholder='http://...'
             className='login__input'
           />
-          <label htmlFor='itemPrice' className='login__label'>
-            Pradinė kaina, €
-          </label>
-          <input type='number' ref={priceRef} id='itemPrice' required className='login__input' />
-          <label htmlFor='itemDate' className='login__label'>
-            Aukciono pabaiga
-          </label>
-          <input type='datetime-local' ref={dateRef} id='itemDate' className='login__input' />
-          <input type='submit' className='btn btn--shadow' value='Siųsti' />
+          <div className='label-container'>
+            <label htmlFor='itemPrice' className='login__label'>
+              Pradinė kaina, €
+            </label>
+            <label htmlFor='itemDate' className='login__label'>
+              Aukciono pabaiga
+            </label>
+          </div>
+          <div className='input-container'>
+            {' '}
+            <input
+              type='number'
+              ref={priceRef}
+              id='itemPrice'
+              required
+              min={-9999999}
+              max={9999999}
+            />
+            <input type='datetime-local' ref={dateRef} id='itemDate' />
+          </div>
+          <input
+            type='submit'
+            className='popup__submit btn btn--shadow btn--white'
+            value='Siųsti'
+          />
         </form>
       </div>
     </div>
